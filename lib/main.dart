@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'modules/movies_screen/movies_screen.dart';
 import 'modules/profile_screen/profile_screen.dart';
 import 'modules/setting_screen/setting_screen.dart';
+import 'modules/tv_screen/tv_screen.dart';
 import 'modules/welcome_screen/splash_screen.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  const MoviesScreen(),
+      home:  const TvScreen(),
     );
   }
 }

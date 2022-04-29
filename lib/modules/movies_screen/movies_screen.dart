@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mao_app/models/movies_model/items.dart';
 import 'package:mao_app/shared/constant.dart';
 
 class MoviesScreen extends StatelessWidget {
@@ -27,17 +28,85 @@ class MoviesScreen extends StatelessWidget {
               Icons.search,
               color: Colors.black,
             ),
-            onPressed: () {
-
-            },
+            onPressed: () {},
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Material(
+                  elevation: 5.0,
+                  shadowColor: Colors.black,
+                  clipBehavior: Clip.hardEdge,
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.white,
+                  child: Container(
+                    width: 360.0,
+                    height: 140.0,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.orangeAccent,
+                          Colors.deepOrangeAccent,
+                        ],
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 100.0,
+                          width: 280,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/logo.png'),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              const Text(
+                "Now",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: fontFamily,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              nowMoviesListView(),
+              const Text(
+                "Popular",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: fontFamily,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              popularMoviesList(),
 
-        ],
+            ],
+          ),
+        ),
       ),
     );
   }
