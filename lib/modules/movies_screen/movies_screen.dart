@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mao_app/cubit/cubit.dart';
 import 'package:mao_app/models/movies_model/items.dart';
 import 'package:mao_app/shared/constant.dart';
+import 'package:mao_app/shared/network/repo.dart';
 
 class MoviesScreen extends StatelessWidget {
   const MoviesScreen({Key? key}) : super(key: key);
