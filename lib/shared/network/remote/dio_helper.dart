@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import '../errors.dart';
+import 'end_points.dart';
 
 
 
@@ -14,7 +15,7 @@ class  DioHelper
   static init(){
    dio = Dio(
     BaseOptions(
-    baseUrl: 'https://api.themoviedb.org/3/movie/',
+    baseUrl: 'https://api.themoviedb.org/',
     receiveDataWhenStatusError: true,
     ),
     );
@@ -24,10 +25,16 @@ class  DioHelper
   required String url ,
 }) async {
     dio.options.headers = {
-      'lang': 'en',
       'Content-Type': 'application/json',
     };
-    return await dio.get(url);
+    return await dio.get(
+        getPopularMoviesEndPoint,
+      queryParameters: {
+          'api_key':apiKey,
+          'language':"en-US",
+      },
+
+    );
 
   }
 }
