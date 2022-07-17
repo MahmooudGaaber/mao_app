@@ -1,17 +1,17 @@
 class MoviesModel {
-  late int page;
-  late List<Results> results;
-  late int totalResults;
-  late int totalPages;
+   int? page;
+   List<Results>? results;
+   int? totalResults;
+   int? totalPages;
 
-  MoviesModel({required this.page, required this.results, required this.totalResults, required this.totalPages});
+  MoviesModel({ this.page,  this.results,  this.totalResults,  this.totalPages});
 
   MoviesModel.fromJson(Map<dynamic, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
       results = <Results>[];
       json['results'].forEach((v) {
-        results.add(Results.fromJson(v));
+        results!.add(Results.fromJson(v));
       });
     }
     totalResults = json['total_results'];
@@ -22,7 +22,7 @@ class MoviesModel {
     final Map<String, dynamic> data =  Map<String, dynamic>();
     data['page'] = page;
     if (results != null) {
-      data['results'] = results.map((v) => v.toJson()).toList();
+      data['results'] = results!.map((v) => v.toJson()).toList();
     }
     data['total_results'] = totalResults;
     data['total_pages'] = totalPages;
@@ -44,7 +44,7 @@ class Results {
  late double popularity;
  late int voteCount;
  late bool video;
- late double voteAverage;
+ late dynamic voteAverage;
 
   Results(
       {
@@ -61,7 +61,7 @@ class Results {
         required this.popularity,
         required this.voteCount,
         required this.video,
-        required this.voteAverage});
+         this.voteAverage});
 
   Results.fromJson(Map<String, dynamic> json) {
     posterPath = json['poster_path'];

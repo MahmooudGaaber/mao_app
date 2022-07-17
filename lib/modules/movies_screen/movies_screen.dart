@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mao_app/cubit/cubit.dart';
 import 'package:mao_app/models/movies_model/items.dart';
+import 'package:mao_app/models/movies_model/jason_model.dart';
 import 'package:mao_app/shared/constant.dart';
 import 'package:mao_app/shared/network/repo.dart';
 
-class MoviesScreen extends StatelessWidget {
-  const MoviesScreen({Key? key}) : super(key: key);
-
+class MoviesScreen extends StatelessWidget
+{
+ late MoviesModel moviesModel ;
+   MoviesScreen({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -68,7 +71,7 @@ class MoviesScreen extends StatelessWidget {
                         Container(
                           height: 100.0,
                           width: 280,
-                          decoration: const BoxDecoration(
+                          decoration:   const BoxDecoration(
                             image: DecorationImage(
                               image: AssetImage('assets/images/logo.png'),
                             ),
@@ -106,7 +109,6 @@ class MoviesScreen extends StatelessWidget {
                 height: 15.0,
               ),
               popularMoviesList(),
-
             ],
           ),
         ),

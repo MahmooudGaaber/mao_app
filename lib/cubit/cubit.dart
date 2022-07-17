@@ -7,6 +7,5 @@ import 'package:mao_app/shared/network/repo.dart';
 class MoviesScreenCubit extends Cubit<MoviesScreenStates> {
   MoviesScreenCubit() : super(MoviesScreenInitialState());
   static MoviesScreenCubit get(context) => BlocProvider.of(context);
-   MoviesModel? moviesModel;
    List<Results> popularMovies = [] ;
 }

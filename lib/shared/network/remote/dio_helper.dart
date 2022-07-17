@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:mao_app/models/movies_model/items.dart';
+import 'package:mao_app/models/movies_model/jason_model.dart';
 
 import '../errors.dart';
 import 'end_points.dart';
@@ -8,8 +10,7 @@ import 'end_points.dart';
 
 class  DioHelper
 {
-
-
+  static late MoviesModel moviesModel ;
   static late Dio dio ;
 
   static init(){
@@ -21,9 +22,9 @@ class  DioHelper
     );
   }
 
-  static Future<dynamic> getData({
-  required String url ,
-}) async {
+  static Future<dynamic> getData(
+  // required String url ,
+) async {
     dio.options.headers = {
       'Content-Type': 'application/json',
     };
@@ -31,10 +32,12 @@ class  DioHelper
         getPopularMoviesEndPoint,
       queryParameters: {
           'api_key':apiKey,
-          'language':"en-US",
       },
 
-    );
+    ).then((value) {
+      print(value.data);
+    moviesModel = MoviesModel.fromJson(value.data);
+    });
 
   }
 }

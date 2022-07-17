@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mao_app/shared/constant.dart';
+import 'package:mao_app/models/movies_model/jason_model.dart';
 
+late MoviesModel moviesModel ;
 Widget nowMoviesBuildItem() => Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5.0),
       child: Column(
@@ -16,10 +18,10 @@ Widget nowMoviesBuildItem() => Padding(
             child: Container(
               width: 120.0,
               height: 150.0,
-              decoration: const BoxDecoration(
+              decoration:  const BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(
-                      'https://wallpaperaccess.com/full/5191804.jpg'),
+                  image: NetworkImage('https://wallpaperaccess.com/full/5191804.jpg'),
+                  // image: NetworkImage(moviesModel.results[0].posterPath),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -56,11 +58,11 @@ Widget popularMoviesBuildItem()=> Padding(
             Container(
               width: 120.0,
               height: 150.0,
-              decoration: const BoxDecoration(
+              decoration:  BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage(
-                      'https://wallpaperaccess.com/full/5191804.jpg'),
-                  fit: BoxFit.fitHeight,
+                  image: NetworkImage('https://wallpaperaccess.com/full/5191804.jpg'),
+                  // image: NetworkImage(moviesModel.results![0].posterPath),
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
